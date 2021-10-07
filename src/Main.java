@@ -33,13 +33,15 @@ public class Main {
 
     private static void turnOff() {
         if(coffeeMachine != null) {
+            System.out.println("\nTurning off ...");
             coffeeMachine.stop();
+            coffeeMachine.loadingBar();
             on = false;
         }
     }
 
     private static void leave() {
-        System.out.println("\nThank you for using the Coffee Machine Simulator 2021");
+        System.out.println("\n" + Utility.centerText("Thank you for using the Coffee Machine Simulator 2021", UserInterface.MAX_WIDTH));
     }
 
     private static boolean isOn() { return on; }
