@@ -10,6 +10,13 @@ public enum Drink {
         put(Ingredient.COFFEE, 0.05);
         put(Ingredient.WATER, 0.75);
         put(Ingredient.MILK, 0.25);
+    }}),
+
+    COFFEE_ICE("Coffee (Ice)", 25, new HashMap<>(){{
+        put(Ingredient.COFFEE, 0.05);
+        put(Ingredient.WATER, 0.75);
+        put(Ingredient.MILK, 0.20);
+        put(Ingredient.SUGAR, 0.05);
     }});
 
     String label;

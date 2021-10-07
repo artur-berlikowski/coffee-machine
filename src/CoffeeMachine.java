@@ -16,7 +16,7 @@ public class CoffeeMachine {
         while(running) {
             Drink[] values = Drink.values();
             int choice = displayMenu();
-            //If the chosen option is a drink in the drink list prepare a drink
+            //If the chosen option is a drink from the drink list prepare a drink
             if(choice <= values.length) prepareDrink(values[choice-1]);
             //If not then return to the service menu (last option)
             else stop();
@@ -61,6 +61,10 @@ public class CoffeeMachine {
     public boolean isRunning() { return running; }
 
     public void addEarnings(int cost) { totalEarnings += cost; }
+
+    public int getTotalEarnings() { return totalEarnings; }
+
+    public void displayTotalEarnings() { System.out.println("\nTotal Earnings: " + getTotalEarnings() + " SEK\n"); }
 
     public void loadingBar() {
         int maxWidth = UserInterface.MAX_WIDTH;
@@ -171,5 +175,6 @@ public class CoffeeMachine {
         containers.add(new Container(Ingredient.CREAM_POWDER, 200));
         containers.add(new Container(Ingredient.MILK, 2000));
         containers.add(new Container(Ingredient.WATER, 5000));
+        containers.add(new Container(Ingredient.SUGAR, 1000));
     }
 }

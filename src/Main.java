@@ -11,9 +11,10 @@ public class Main {
                     case 1 : coffeeMachine.fill(); break;
                     case 2 : coffeeMachine.clean(); break;
                     case 3 : coffeeMachine.displayIngredients(); break;
-                    case 4 : coffeeMachine.start(); break;
-                    case 5 : turnOff(); break;
-                    case 6 : leave(); break main_loop;
+                    case 4 : coffeeMachine.displayTotalEarnings(); break;
+                    case 5 : coffeeMachine.start(); break;
+                    case 6 : turnOff(); break;
+                    case 7 : leave(); break main_loop;
                 }
             } else {
                 switch (UI.displayMenu(Menu.SERVICE_OFF)) {
