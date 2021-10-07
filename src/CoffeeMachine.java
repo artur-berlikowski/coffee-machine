@@ -5,7 +5,6 @@ import java.util.Map;
 public class CoffeeMachine {
     UserInterface ui;
     ArrayList<Container> containers;
-    ArrayList<Drink> drinks;
     int totalEarnings;
     boolean running;
 
@@ -15,9 +14,10 @@ public class CoffeeMachine {
 
     public void update() {
         while(running) {
+            Drink[] values = Drink.values();
             int choice = displayMenu();
             //If the chosen option is a drink in the drink list prepare a drink
-            if(choice <= drinks.size()) prepareDrink(drinks.get(choice-1));
+            if(choice <= values.length) prepareDrink(values[choice-1]);
             //If not then return to the service menu (last option)
             else stop();
         }
@@ -73,19 +73,18 @@ public class CoffeeMachine {
     private void init() {
         ui = new UserInterface();
         createIngredients();
-        createDrinks();
     }
 
     private int displayMenu() {
         ArrayList<String> options = new ArrayList<>();
-        for(Drink drink : drinks) { options.add(drink.getName()); }
+        for(Drink drink : Drink.values()) { options.add(drink.label); }
         return ui.displayTableMenu("Drinks Menu", options, 4);
     }
 
     private void prepareDrink(Drink drink) {
-        String name = drink.getName().toLowerCase();
-        int baseCost = drink.getBaseCost();
-        HashMap<Ingredient,Double> composition = drink.getComposition();
+        String name = drink.label.toLowerCase();
+        int baseCost = drink.baseCost;
+        HashMap<Ingredient,Double> composition = drink.composition;
         Size size = promptSize(baseCost);
         if(size != null) {
             if(checkIngredients(composition, size)) {
@@ -172,22 +171,5 @@ public class CoffeeMachine {
         containers.add(new Container(Ingredient.CREAM_POWDER, 200));
         containers.add(new Container(Ingredient.MILK, 2000));
         containers.add(new Container(Ingredient.WATER, 5000));
-    }
-
-    private void createDrinks() {
-        drinks = new ArrayList<>();
-
-        //PLAIN COFFEE
-        drinks.add(new Drink("Coffee, Plain", 20, new HashMap<>(){{
-            put(Ingredient.COFFEE, 0.05);
-            put(Ingredient.WATER, 1.0);
-        }}));
-
-        //COFFEE WITH MILK
-        drinks.add(new Drink("Coffee, Milk", 25, new HashMap<>(){{
-            put(Ingredient.COFFEE, 0.05);
-            put(Ingredient.WATER, 0.75);
-            put(Ingredient.MILK, 0.25);
-        }}));
     }
 }
