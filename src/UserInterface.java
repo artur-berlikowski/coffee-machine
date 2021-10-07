@@ -14,10 +14,10 @@ public class UserInterface {
         return getMenuChoice(menu.options.length);
     }
 
-    public int displayTableMenu(String title, ArrayList<String> options, int numberOfColumns) {
+    public int displayTableMenu(String title, String labelReturn, ArrayList<String> options, int numberOfColumns) {
         ArrayList<String> numericOptions = new ArrayList<>();
         ArrayList<String> table = new ArrayList<>();
-        options.add("Return");
+        options.add(labelReturn);
         StringBuilder builder;
         int numberOfOptions = options.size();
         int numberOfRows = numberOfOptions / numberOfColumns + (numberOfOptions % numberOfColumns != 0 ? 1 : 0);

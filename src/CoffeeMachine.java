@@ -34,7 +34,7 @@ public class CoffeeMachine {
     public void stop() { if(isRunning()) { running = false; } }
 
     public void fill() {
-        System.out.println("\nFilling all containers ...\n");
+        System.out.println("\nFilling all containers ...");
         for(Container container : containers) { container.setVolume(container.getMaxVolume()); }
         loadingBar();
         System.out.println("Filling process completed." +
@@ -42,7 +42,7 @@ public class CoffeeMachine {
     }
 
     public void clean() {
-        System.out.println("\nCleaning process started ...\n");
+        System.out.println("\nCleaning process started ...");
         for(Container container : containers) { container.setVolume(0); }
         loadingBar();
         System.out.println("Cleaning process completed." +
@@ -78,7 +78,7 @@ public class CoffeeMachine {
     private int displayMenu() {
         ArrayList<String> options = new ArrayList<>();
         for(Drink drink : Drink.values()) { options.add(drink.label); }
-        return ui.displayTableMenu("Drinks Menu", options, 4);
+        return ui.displayTableMenu("Drinks Menu", "Service Menu", options, 4);
     }
 
     private void prepareDrink(Drink drink) {
@@ -107,7 +107,7 @@ public class CoffeeMachine {
 
         Size size = null;
 
-        switch(ui.displayTableMenu("What size would you like you drink to be?", options, 4)) {
+        switch(ui.displayTableMenu("What size would you like you drink to be?", "Return", options, 4)) {
             case 1 -> size = Size.SMALL;
             case 2 -> size = Size.MEDIUM;
             case 3 -> size = Size.LARGE;
