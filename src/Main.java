@@ -15,7 +15,7 @@ public class Main {
                     case 5 : turnOff(); break;
                     case 6 : leave(); break main_loop;
                 }
-            } else if(!isOn()) {
+            } else {
                 switch (UI.displayMenu(Menu.SERVICE_OFF)) {
                     case 1 : turnOn(); break;
                     case 2 : leave(); break main_loop;

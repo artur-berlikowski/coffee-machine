@@ -5,7 +5,7 @@ public class Drink {
     private int baseCost;
     private HashMap<Ingredient, Double> composition;
 
-    public Drink(String name, int baseCost, HashMap composition) {
+    public Drink(String name, int baseCost, HashMap<Ingredient,Double> composition) {
         setName(name);
         setBaseCost(baseCost);
         setComposition(composition);

@@ -12,10 +12,10 @@ public class Utility {
     public static String centerText(String s, int width) {
         StringBuilder row = new StringBuilder();
         int margin = (width - s.length()) / 2;
-        for(int i = 0; i < margin; i++) { row.append(' '); }
+        row.append(" ".repeat(Math.max(0, margin)));
         row.append(s);
-        for(int i = 0; i < margin; i++) { row.append(' '); }
-        for(int i = 0; i < width - row.toString().length(); i++) row.append(' ');
+        row.append(" ".repeat(Math.max(0, margin)));
+        row.append(" ".repeat(Math.max(0, width - row.toString().length())));
         return row.toString();
     }
 
@@ -25,7 +25,7 @@ public class Utility {
         StringBuilder builder = new StringBuilder();
         String[] parts = s.split(" ");
         for(String part : parts) {
-            builder.append(part.substring(0,1).toUpperCase() + part.substring(1));
+            builder.append(part.substring(0, 1).toUpperCase()).append(part.substring(1));
         }
         return builder.toString();
     }

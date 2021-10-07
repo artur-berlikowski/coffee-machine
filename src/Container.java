@@ -1,5 +1,5 @@
 public class Container {
-    private Ingredient ingredient;
+    private final Ingredient ingredient;
     int volume;
     int maxVolume;
 

@@ -1,5 +1,3 @@
-import jdk.jshell.execution.Util;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -26,7 +24,6 @@ public class UserInterface {
         int columnWidth = MAX_WIDTH / numberOfColumns;
         //Numeric options
         for(int i = 0; i < options.size(); i++) numericOptions.add((i+1) + ". " + options.get(i));
-        int maxLength = Utility.getMaxLengthFromArrayOfStrings(numericOptions.toArray(new String[0]));
         //Create table
         int cell = 0;
         for(int row = 0; row < numberOfRows; row++) {
@@ -36,7 +33,7 @@ public class UserInterface {
                 else builder.append(" ".repeat(columnWidth));
                 cell++;
             }
-            table.add(wrapRow(splitRow(builder.toString(), 4, '|'), '|'));
+            table.add(wrapRow(splitRow(builder.toString(), 4, WRAPPER), WRAPPER));
             table.add(getSpacerAsString());
         }
 

@@ -65,7 +65,7 @@ public class CoffeeMachine {
     public void loadingBar() {
         int maxWidth = UserInterface.MAX_WIDTH;
         for(int i = 0; i < maxWidth; i++) {
-            try { Thread.sleep(25); } catch(Exception e) {};
+            try { Thread.sleep(25); } catch(Exception ignored) {}
             System.out.print((i == 0 ? "\n" : "") + "|" + (i ==  maxWidth - 1 ? "\n\n" : ""));
         }
     }
@@ -97,10 +97,7 @@ public class CoffeeMachine {
                 System.out.println("You drink is ready, hope you'll enjoy it\n");
             } else {
                 System.out.println("\nThere are to few ingredients for this drink, please access the service menu to fill the containers.\n");
-                return;
             }
-        } else {
-            return;
         }
     }
 
@@ -116,7 +113,6 @@ public class CoffeeMachine {
             case 2 -> size = Size.MEDIUM;
             case 3 -> size = Size.LARGE;
             case 4 -> size = Size.MONSTER;
-            case 5 -> size = null;
         }
 
         return size;
@@ -146,8 +142,9 @@ public class CoffeeMachine {
             double percentage = entry.getValue();
             int amount = calculateVolume(size.volume, percentage);
             for(Container container : containers) {
-                if(container.getIngredient() == ingredient && amount >= container.volume) {
+                if (container.getIngredient() == ingredient && amount >= container.volume) {
                     enoughIngredients = false;
+                    break;
                 }
             }
         }
@@ -155,7 +152,7 @@ public class CoffeeMachine {
     }
 
     private int calculatePrize(int baseCost, Size size) {
-        return  (int)Math.floor(baseCost * size.volume / Size.SMALL.volume);
+        return  (int)Math.floor((double)baseCost * size.volume / Size.SMALL.volume);
     }
 
     //Calculate the volume required for an ingredient
