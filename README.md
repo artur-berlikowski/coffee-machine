@@ -1,0 +1,1 @@
+A school project with the goal of creating a console based simulation of a coffee machine.
