@@ -178,13 +178,13 @@ public class CoffeeMachine {
         drinks = new ArrayList<>();
 
         //PLAIN COFFEE
-        drinks.add(new Drink("Coffee, Plain", 20, new HashMap<Ingredient,Double>(){{
+        drinks.add(new Drink("Coffee, Plain", 20, new HashMap<>(){{
             put(Ingredient.COFFEE, 0.05);
             put(Ingredient.WATER, 1.0);
         }}));
 
         //COFFEE WITH MILK
-        drinks.add(new Drink("Coffee, Milk", 25, new HashMap<Ingredient,Double>(){{
+        drinks.add(new Drink("Coffee, Milk", 25, new HashMap<>(){{
             put(Ingredient.COFFEE, 0.05);
             put(Ingredient.WATER, 0.75);
             put(Ingredient.MILK, 0.25);
