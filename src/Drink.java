@@ -12,18 +12,33 @@ public enum Drink {
         put(Ingredient.MILK, 0.25);
     }}),
 
-    COFFEE_LATTE("Caffe Latte", 32, new HashMap<>(){{
+    COFFEE_LATTE("Coffee Latte", 32, new HashMap<>(){{
         put(Ingredient.COFFEE, 0.10);
         put(Ingredient.WATER, 0.25);
-        put(Ingredient.MILK, 0.75);
         put(Ingredient.SUGAR, 0.05);
+        put(Ingredient.MILK, 0.75);
+    }}),
+
+    COFFEE_LATTE_MACCHIATO("Coffee Latte Macchiato", 35, new HashMap<>(){{
+        put(Ingredient.COFFEE, 0.10);
+        put(Ingredient.WATER, 0.25);
+        put(Ingredient.SUGAR, 0.05);
+        put(Ingredient.MILK, 0.75);
+    }}),
+
+    COFFEE_MAROCCHINO("Coffee Marocchino", 35, new HashMap<>(){{
+        put(Ingredient.COFFEE, 0.2);
+        put(Ingredient.WATER, 0.8);
+        put(Ingredient.CHOCOLATE, 0.2);
+        put(Ingredient.SUGAR, 0.05);
+        put(Ingredient.MILK, 0.2);
     }}),
 
     COFFEE_ICE("Coffee (Ice)", 28, new HashMap<>(){{
         put(Ingredient.COFFEE, 0.05);
         put(Ingredient.WATER, 0.75);
-        put(Ingredient.MILK, 0.20);
         put(Ingredient.SUGAR, 0.05);
+        put(Ingredient.MILK, 0.20);
     }});
 
     String label;

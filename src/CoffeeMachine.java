@@ -126,9 +126,10 @@ public class CoffeeMachine {
         for(Map.Entry<Ingredient,Double> entry : composition.entrySet()) {
             Ingredient ingredient = entry.getKey();
             double percentage = entry.getValue();
+            int toRemove = calculateVolume(size.volume,percentage);
+
             for(Container container : containers) {
                 Ingredient currentIngredient = container.getIngredient();
-                int toRemove = calculateVolume(size.volume,percentage);
                 if(currentIngredient == ingredient) {
                     container.setVolume(container.getVolume() - toRemove);
                     System.out.println("Used " + toRemove + currentIngredient.unit.unit + " of " + currentIngredient.label + "\n");
